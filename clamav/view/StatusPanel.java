@@ -12,7 +12,7 @@ public class StatusPanel extends JPanel {
         statusLabel = new JLabel("Sẵn sàng");
         progressBar = new JProgressBar();
         progressBar.setStringPainted(true);
-
+        progressBar.setMaximum(100);
         add(statusLabel, BorderLayout.WEST);
         add(progressBar, BorderLayout.CENTER);
     }

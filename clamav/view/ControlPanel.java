@@ -27,5 +27,21 @@ public class ControlPanel extends JPanel {
 
     private void setupButtons() {
         // Code setup các buttons...
+        JButton scanFileButton = new JButton("Quét File");
+        scanFileButton.addActionListener(e -> onScanFile.accept(null));
+        add(scanFileButton);
+
+        JButton scanFolderButton = new JButton("Quét Thư Mục");
+        scanFolderButton.addActionListener(e -> onScanFolder.accept(null));
+        add(scanFolderButton);
+
+
+        JButton updateDbButton = new JButton("Cập nhật Database");
+        updateDbButton.addActionListener(e -> onUpdateDb.accept(null));
+        add(updateDbButton);
+
+        JButton clearLogButton = new JButton("Xóa Log");
+        clearLogButton.addActionListener(e -> onClearLog.accept(null));
+        add(clearLogButton);
     }
 }
