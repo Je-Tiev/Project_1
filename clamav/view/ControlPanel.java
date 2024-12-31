@@ -5,21 +5,21 @@ import java.awt.*;
 import java.util.function.Consumer;
 
 public class ControlPanel extends JPanel {
-    private final Consumer<Void> onScanFile;
-    private final Consumer<Void> onScanFolder;
-    private final Consumer<Void> onUpdateDb;
-    private final Consumer<Void> onClearLog;
-    private final Consumer<Void> onShowStatistics;
-    private final Consumer<Void> onExportData;
+    Runnable onScanFile;
+    Runnable onScanFolder;
+    Runnable onUpdateDb;
+    Runnable onClearLog;
+    Runnable onShowStatistics;
+    Runnable onExportData;
 
 
     public ControlPanel(
-            Consumer<Void> onScanFile,
-            Consumer<Void> onScanFolder,
-            Consumer<Void> onUpdateDb,
-            Consumer<Void> onClearLog,
-            Consumer<Void> onShowStatistics,
-            Consumer<Void> onExportData
+            Runnable onScanFile,
+            Runnable onScanFolder,
+            Runnable onUpdateDb,
+            Runnable onClearLog,
+            Runnable onShowStatistics,
+            Runnable onExportData
     ) {
         this.onScanFile = onScanFile;
         this.onScanFolder = onScanFolder;
@@ -34,27 +34,27 @@ public class ControlPanel extends JPanel {
     private void setupButtons() {
         // Code setup các buttons...
         JButton scanFileButton = new JButton("Quét File");
-        scanFileButton.addActionListener(e -> onScanFile.accept(null));
+        scanFileButton.addActionListener(e -> onScanFile.run());
         add(scanFileButton);
 
         JButton scanFolderButton = new JButton("Quét Thư Mục");
-        scanFolderButton.addActionListener(e -> onScanFolder.accept(null));
+        scanFolderButton.addActionListener(e -> onScanFolder.run());
         add(scanFolderButton);
 
         JButton updateDbButton = new JButton("Cập nhật Database");
-        updateDbButton.addActionListener(e -> onUpdateDb.accept(null));
+        updateDbButton.addActionListener(e -> onUpdateDb.run());
         add(updateDbButton);
 
         JButton clearLogButton = new JButton("Xóa Log");
-        clearLogButton.addActionListener(e -> onClearLog.accept(null));
+        clearLogButton.addActionListener(e -> onClearLog.run());
         add(clearLogButton);
 
         JButton statisticsButton = new JButton("Thống Kê");
-        statisticsButton.addActionListener(e -> onShowStatistics.accept(null));
+        statisticsButton.addActionListener(e -> onShowStatistics.run());
         add(statisticsButton);
 
         JButton exportButton = new JButton("Xuất Dữ Liệu");
-        exportButton.addActionListener(e -> onExportData.accept(null));
+        exportButton.addActionListener(e -> onExportData.run());
         add(exportButton);
     }
 }
