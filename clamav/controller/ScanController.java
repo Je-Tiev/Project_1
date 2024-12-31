@@ -1,7 +1,7 @@
-package com.example.clamav.controller;
+package clamav.controller;
 
-import com.example.clamav.model.ScanResult;
-import com.example.clamav.service.ClamAVService;
+import clamav.model.ScanResult;
+import clamav.service.ClamAVService;
 import java.io.File;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

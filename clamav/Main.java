@@ -1,8 +1,10 @@
-package com.example.clamav;
+package clamav;
 
-import com.example.clamav.view.MainView;
-import com.example.clamav.controller.ScanController;
-import com.example.clamav.service.ClamAVService;
+import clamav.view.MainView;
+import clamav.controller.ScanController;
+import clamav.service.ClamAVService;
+
+import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {

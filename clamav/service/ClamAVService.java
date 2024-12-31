@@ -1,6 +1,6 @@
-package com.example.clamav.service;
+package clamav.service;
 
-import com.example.clamav.model.ScanResult;
+import clamav.model.ScanResult;
 import java.io.*;
 import java.net.Socket;
 import java.nio.charset.StandardCharsets;
@@ -65,11 +65,13 @@ public class ClamAVService {
             String scanResult = scanner.nextLine();
             boolean clean = scanResult.contains("OK");
             String message = scanResult;
+            String status = clean ? "CLEAN" : "INFECTED"; // Set the default status
             if(scanResult.contains("FOUND")) {
                 message = "Virus found: " + scanResult;
             }
 
-            return new ScanResult(clean, message, file.getName(), fileSize);
+
+            return new ScanResult(clean, message, file.getName(), fileSize, "FILE", status);
 
         } catch(IOException e) {
             System.err.println("Lỗi quét file " + file.getAbsolutePath() + " : " + e.getMessage());

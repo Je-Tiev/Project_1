@@ -1,4 +1,4 @@
-package com.example.clamav.view;
+package clamav.view;
 
 import javax.swing.*;
 import java.awt.*;
